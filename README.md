@@ -1,8 +1,8 @@
-# Reference-Architecture
+# Project Poplin
 
 This project, sponsored by the MITA Governance Board created by the Centers for Medicare & Medicaid Services (CMS), seeks to create a reference architecture for Medicaid Management Information Systems (MMIS) to coordinate the mission, vision, and strategy and provide technical specifications that ensure interoperability of modules and information across multi-organization, multi-vendor, and multi-technology systems.
 
-### Reference Architecture - Goals
+### Poplin - Goals
 
 * Enable fine-grain modularity
 * Promote reusability
@@ -11,7 +11,7 @@ This project, sponsored by the MITA Governance Board created by the Centers for 
 * Support migration path
 * Establish trust framework for nationwide information exchange
 
-### Reference Architecture - Principles
+### Poplin - Principles
 
 * All data and functionality should be exposed through service-oriented APIs
 * Standardize service boundaries (e.g. APIs), not internals
@@ -27,7 +27,7 @@ This project, sponsored by the MITA Governance Board created by the Centers for 
 * Must use open standards
 * Public APIs shall be documented
 
-### Reference Architecture - Practices
+### Poplin - Practices
 
 * Services should strive to be small and do one thing well
 * Services should be loosely coupled and have bounded contexts
