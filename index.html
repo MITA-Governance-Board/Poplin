@@ -4,9 +4,30 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <div class="jumbotron">#Poplin</div> <!-- TODO: Replace with large logo image -->
 
-  <ul class="post-list">
+  <div class=""> <!-- TODO: Update styling -->
+    <div class="definition">
+      <p><strong>pop</strong>·lin</p>
+      <p><em>noun:</em> a durable, plain-woven fabric, typically a lightweight cotton with a simple weave</p>
+    </div>
+    <p>Poplin fabric is often used to create scrubs for clinical staff.  The Poplin project seeks to develop a cohesive, free, open-source reference architecture for states to use in developing a modern, modular Medicaid system.  It is our hope that the Poplin project serves as the underlying connective fabric for future Medicaid systems.</p>
+  </div>
+
+  <!-- TODO: Refactor to reduce duplication? -->
+  <div class='for-container'>
+    <a href="/developers" class="for">
+      {% icon fa-file-code-o %}<br>Poplin for Developers
+    </a>
+    <a href="/states" class="for">
+      {% icon fa-university %}<br>Poplin for States
+    </a>
+    <a href="/vendors" class="for">
+      {% icon fa-shopping-cart %}<br>Poplin for Vendors
+    </a>
+  </div>
+
+  <!-- <ul class="post-list">
     {% for post in site.posts %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
@@ -16,8 +37,8 @@ layout: default
         </h2>
       </li>
     {% endfor %}
-  </ul>
+  </ul> -->
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
 
-</div>
+</div> <!-- home -->

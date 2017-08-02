@@ -1,0 +1,29 @@
+.jumbotron {
+  font-size: 10em;
+  text-align: center;
+  font-weight: 100;
+}
+.definition {
+  border-left: 3px solid;
+  padding-left: 1em;
+  margin: 0 1em;
+}
+.for-container {
+  margin: 3em 0;
+}
+.for{
+  display: inline-block;
+  width: 31%;
+  margin: 1%;
+  border: 1px solid;
+  padding: 5% 0;
+  float: left;
+  text-align: center;
+  &:hover {
+    text-decoration: none;
+  }
+  .fa {
+    font-size: 5em;
+    margin-bottom: 10px;
+  }
+}
