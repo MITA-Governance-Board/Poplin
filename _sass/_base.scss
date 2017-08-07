@@ -24,6 +24,11 @@ body {
     font-feature-settings: "kern" 1;
     font-kerning: normal;
 }
+body * {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit  */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko         */
+  box-sizing: border-box;
+}
 
 
 
@@ -94,9 +99,9 @@ a {
     color: $brand-color;
     text-decoration: none;
 
-    &:visited {
-        color: darken($brand-color, 15%);
-    }
+    // &:visited {
+    //     color: darken($brand-color-light, 15%);
+    // }
 
     &:hover {
         color: $text-color;
