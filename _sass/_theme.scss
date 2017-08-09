@@ -39,5 +39,33 @@
     }
   }
 }
+.block-container-4 {
+  margin: 1em 0;
+  overflow: hidden;
+  a {
+    display: inline-block;
+    width: 22%;
+    margin: 1%;
+    border: 2px solid;
+    padding: 2% 0;
+    float: left;
+    text-align: center;
+    font-size: 1em;
+    &:hover {
+      text-decoration: none;
+      color: $brand-color-bright;
+    }
+    .fa {
+      font-size: 3em;
+      margin-bottom: 5px;
+    }
+    @include media-query($on-laptop) {
+      width: 45%;
+    }
+    @include media-query($on-palm) {
+      width: 98%;
+    }
+  }
+}
 
 // Contact
