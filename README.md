@@ -1,4 +1,4 @@
-[[https://github.com/MITA-Governance-Board/Poplin/blob/master/images/poplin@2x.png]]
+![alt text](https://github.com/MITA-Governance-Board/Poplin/blob/master/images/poplin@2x.png)
 
 # Project Poplin
 
