@@ -26,6 +26,7 @@
     float: left;
     text-align: center;
     font-size: 1.2em;
+    background: white;
     &:hover {
       text-decoration: none;
       color: $brand-color-bright;
@@ -51,6 +52,7 @@
     float: left;
     text-align: center;
     font-size: 1em;
+    background: white;
     &:hover {
       text-decoration: none;
       color: $brand-color-bright;
@@ -69,3 +71,13 @@
 }
 
 // Contact
+
+// Developers
+.tech_logos li {
+  display: inline-block;
+  list-style: none;
+  padding: 1%;
+}
+.tech_logos img {
+  height: 100px;
+}

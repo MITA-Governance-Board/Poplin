@@ -6,6 +6,28 @@ permalink: /developers/
 
 <h1 class="post-title">Poplin for Developers</h1>
 
+<img src='/images/pins.png' alt='diagram showing Poplin as the thread between modules' />
+<h2>The Standard for Medicaid IT Modularity</h2>
+<p>If you work in Medicaid IT, you should know about Poplin. Poplin is using open-source software and standards to create a reference architecture that anyone can use.  We're leveraging a cross-organizational workgroup to develop a clear, consistent definition of the way that Medicaid modules interoperate.</p>
+
+<h2>How is the reference architecture defined?</h2>
+<ul class='tech_logos'>
+  <li><a href="http://www.omg.org/spec/SysML/"><img src='/images/sysml.png' alt='sysml logo' /></a>
+  <li><a href="http://www.omg.org/spec/UML/"><img src='/images/uml.png' alt='uml logo' /></a>
+  <li><a href="http://www.omg.org/spec/UAF/"><img src='/images/uaf.png' alt='uaf logo' /></a>
+  <li><a href="https://github.com/OAI/OpenAPI-Specification"><img src='/images/openapi.png' alt='openapi logo' /></a>
+  <li><a href="https://www.medicaid.gov/medicaid/data-and-systems/mita/mita-30/index.html"><img src='/images/mita.png' alt='mita logo' /></a>
+</ul>
+<p>The reference architecture is defined through the successive development of a series of documents.  These documents conform to a number of standards, including <a href="http://www.omg.org/spec/UML/">UML</a>, <a href="http://www.omg.org/spec/SysML/">SysML</a>, <a href="http://www.omg.org/spec/UAF/">UAF</a>, <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI Specification</a>, and <a href="https://www.medicaid.gov/medicaid/data-and-systems/mita/mita-30/index.html">MITA 3.0</a>:</p>
+<ol>
+  <li><strong>Business Process Models</strong>, which use SYS/UML diagrams to represent the functionality and flow of a system and its processes
+  <li><strong>Object and Resource Models</strong>, which use SYS/UML diagrams to represent the entity composition and relationships of a system
+  <li><strong>Object and Resource Definitions</strong>, which specify the nature of the data that can be exchanged with a service, what fields are included with each object, the name and type of each field, whether the field is optional or required, and type of relationships with other objects (one-to-one, 0 or more, 1 or more, etc)
+  <li><strong>API Definitions</strong> that (based on the above investigatory materials) tightly define the interactions between Medicaid modules
+</ol>
+<p>For more information, check out the Service Definition Template (TODO: link).</p>
+
+<h2>Get Started</h2>
 <div class="block-container-4">
   <a href="https://github.com/MITA-Governance-Board/Poplin">
     <i class="fa fa-github"></i><br>Github
@@ -20,29 +42,9 @@ permalink: /developers/
     <i class="fa fa-phone"></i><br>Weekly Call
   </a>
 </div>
-
-<h2>Get Started</h2>
 <ul>
   <li>All code and documentation (including <a href="https://github.com/MITA-Governance-Board/Poplin/wiki">meeting notes in the wiki</a>) are available on our <a href="https://github.com/MITA-Governance-Board/Poplin">Github site</a>.
   <li>Since the Poplin team is spread across multiple organizations, we use slack to coordinate conversations outside of our regularly scheduled calls.  If you would like to join our Slack channel, <a href="mailto:team@projectpoplin.org?Subject=Slack%20Access%20for%20Poplin">contact the administrator</a>.
   <li>We use Pivotal tracker to plan and monitor our project tasks. If you would like permission to add or edit tasks, <a href="mailto:team@projectpoplin.org?Subject=Pivotal%20Access%20for%20Poplin">contact the administrator</a>.
   <li>Every Friday at 1pm, we join a group call to check in with each other. <a href="mailto:team@projectpoplin.org?Subject=Join%20Weekly%20Poplin%20Call">Contact the administrator</a> for an invite.
-</ul>
-
-<h2>How is the reference architecture defined?</h2>
-<p>The reference architecture is defined through the successive development of a series of documents.  These documents conform to a number of standards, including <a href="http://www.omg.org/spec/UML/">UML</a>, <a href="http://www.omg.org/spec/SysML/">SysML</a>, <a href="http://www.omg.org/spec/UAF/">UAF</a>, <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI Specification</a>, and <a href="https://www.medicaid.gov/medicaid/data-and-systems/mita/mita-30/index.html">MITA 3.0</a>:</p>
-<ol>
-  <li>Business Process Models, which use SYS/UML diagrams to represent the functionality and flow of a system and its processes
-  <li>Object and Resource Models, which use SYS/UML diagrams to represent the entity composition and relationships of a system
-  <li>Object and Resource Definitions, which specify the nature of the data that can be exchanged with a service, what fields are included with each object, the name and type of each field, whether the field is optional or required, and type of relationships with other objects (one-to-one, 0 or more, 1 or more, etc)
-  <li>API Definitions, ideally conforming to the <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI Specification</a>
-</ol>
-<p>For more information, check out the Service Definition Template (TODO: link).</p>
-
-<h2>How can I contribute?</h2>
-<p>There are a few ways you can contribute to Poplin:</p>
-<ul>
-  <li>Join our weekly call - <a href="mailto:team@projectpoplin.org?Subject=Join%20Weekly%20Poplin%20Call">contact the administrator</a> for an invite
-  <li>Ask and answer questions on our <a href="https://mita-rawg.slack.com">slack channel</a>
-  <li>Submit a <a href='https://github.com/MITA-Governance-Board/Poplin/pulls'>pull request via Github</a>
 </ul>
