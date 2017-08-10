@@ -27,7 +27,7 @@ Any organization affiliated with Medicaid IT systems stands to benefit from the 
 A reference architecture establishes service definitions, data transfer methods, and file standards.  This allows vendors to focus on building those services and allows states to build an MMIS system from multiple interoperable modules.  Poplin is defined through the successive development of a series of documents.  These documents conform to a number of standards, including [UML](http://www.omg.org/spec/UML/), [SysML](http://www.omg.org/spec/SysML/), [UAF](http://www.omg.org/spec/UAF/), [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification), and [MITA 3.0](https://www.medicaid.gov/medicaid/data-and-systems/mita/mita-30/index.html)
 
 ## Where did Poplin come from?
-Currently, the Poplin project is being stewarded by the [Center for Medicaid and CHIP Services (CMCS)](https://www.medicaid.gov/), with assistance from [MITRE's](mitre.org) [CMS Alliance to Modernize Healthcare](https://www.mitre.org/centers/cms-alliances-to-modernize-healthcare/who-we-are), the [Vermont Agency of Human Services](http://humanservices.vermont.gov/), and [CNSI](http://www.cns-inc.com/), among others.
+Currently, the Poplin project is being stewarded by the [Center for Medicaid and CHIP Services (CMCS)](https://www.medicaid.gov/), with assistance from [MITRE's](https://mitre.org) [CMS Alliance to Modernize Healthcare](https://www.mitre.org/centers/cms-alliances-to-modernize-healthcare/who-we-are), the [Vermont Agency of Human Services](http://humanservices.vermont.gov/), and [CNSI](http://www.cns-inc.com/), among others.
 <!-- Does order matter here?  Is anyone offended by being called out here? -->
 
 ## How can I contribute to Poplin?
