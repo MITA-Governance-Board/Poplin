@@ -8,8 +8,9 @@
 # Site settings
 title: Poplin
 # email: your-email@domain.com
-description: > # The Poplin project seeks to develop a cohesive, free,
-  open-source reference architecture for states to use in developing a
+description: > # this means to ignore newlines until "baseurl:"
+  The Poplin project seeks to develop a cohesive, free, open-source
+  reference architecture for states to use in developing a
   modern, modular Medicaid system.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://projectpoplin.org" # the base hostname & protocol for your site
