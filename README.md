@@ -2,7 +2,9 @@
 
 # Project Poplin
 
-This project, sponsored by the MITA Governance Board created by the Centers for Medicare & Medicaid Services (CMS), seeks to create a reference architecture for Medicaid Management Information Systems (MMIS) to coordinate the mission, vision, and strategy and provide technical specifications that ensure interoperability of modules and information across multi-organization, multi-vendor, and multi-technology systems.
+This project, sponsored by the MITA Governance Board created by the Centers for Medicare & Medicaid Services (CMS), seeks to develop a cohesive, free, open-source reference architecture for states to use in developing a modern, modular Medicaid system. Like the poplin fabric that is commonly used to create scrubs for clinical staff, it is our hope that the Poplin project serves as the underlying connective fabric for future Medicaid systems.
+
+For more information, please see the Project Poplin [web site](https://www.projectpoplin.org).
 
 ### Poplin - Goals
 
