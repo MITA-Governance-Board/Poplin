@@ -1,0 +1,52 @@
+#%RAML 1.0
+title: Case Management API
+version: v1
+baseUri: http://api.???.com
+mediaType:  application/json
+
+types:
+  TestType:
+    type: object
+    properties:
+      id: number
+      optional?: string
+      expanded:
+        type: object
+        properties:
+          count: number
+/helloWorld:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "message" : "Hello World"
+              }
+/cases:
+  displayName: Cases
+  get:
+    responses:
+  post:
+    responses:
+/case:
+  displayName: Case
+  post:
+    responses:
+  get:
+    responses:
+  put:
+    responses:
+  delete:
+    responses:
+/casetypes:
+  displayName: Case Types
+  post:
+    responses:
+  get:
+    responses:
+  put:
+    responses:
+  delete:
+    responses:
