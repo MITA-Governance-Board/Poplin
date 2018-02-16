@@ -3,50 +3,203 @@ title: Case Management API
 version: v1
 baseUri: http://api.???.com
 mediaType:  application/json
+securedBy: oauth_2_0
 
 types:
-  TestType:
+  case:
     type: object
+    description: this type represents a case for delivering a service to a client
     properties:
-      id: number
-      optional?: string
-      expanded:
-        type: object
-        properties:
-          count: number
-/helloWorld:
-  get:
-    responses:
-      200:
-        body:
-          application/json:
-            example: |
-              {
-                "message" : "Hello World"
-              }
+      caseid: string
+      casetype: string
+      casestatus:
+        enum: [submitted, pending, active, hold, rejected, closed]
+      casedescription?: string
+      personid: string
+      clientid: string
+      casenotes?: array
+      casedetails?: array
+      casedocuments?: array
+      lastupdatedbyid: string
+      lastupdateddate: datetime
+
+  casenotes:
+    type: object
+    notetype:
+      type: string
+      enum: [private, public]
+    description: this is a note that will be associated with a case
+    properties:
+  casedocuments: object
+
+  casetype:
+    type: object
+    description: this is a type of case
+    lastupdatedbyid: string
+    lastupdateddate: datetime
+  casedetail:
+    type: object
+    description: this is an element of a case which contains details about the case
+    properties:
+      casedetailid: string
+      detailtype: string
+      detailtext: array
+
+  casedetailtype:
+    casedetail:
+      type: object
+      description: this is a descripter which identifies the type of the detail
+  caseelement:
+    type: object
+    description: this is an element of a case which contains details about the case
+  caseelementtype:
+    type: object
+    description: this is an element of a case which contains details about the case
+
 /cases:
   displayName: Cases
   get:
+    queryParameters:
+      name?: string
+      identifier?: string
+      casetype?: string
+      casedate?: date-only
+      casedaterange?:
+        type: integer
+        description: Number of days +/- used with the casedate to locate cases
     responses:
-  post:
-    responses:
+      200:
+        description: success
+      400:
+        description: bad request
+      401:
+        description: unauthorized access
+      403:
+        description: action forbidden
 /case:
   displayName: Case
   post:
+    description: API used to create a new case
+    body:
+      application/json:
+        properties:
+          casetype: string
+          casedescription?: string
+          personname: string
+          casenote?: string
+          casedocument?: casedocuments
+          casedetail?: casedetail
+          requestinguser: string
+          effectivedate: datetime
     responses:
+      201:
+        description: resource created
+      400:
+        description: bad request
+      401:
+        description: unauthorized access
+      403:
+        description: action forbidden
+      409:
+        description: resource conflict
   get:
     responses:
+      200:
+        description: success
+      400:
+        description: bad request
+      401:
+        description: unauthorized access
+      403:
+        description: action forbidden
   put:
     responses:
+      200:
+        description: success
+      400:
+        description: bad request
+      401:
+        description: unauthorized access
+      403:
+        description: action forbidden
   delete:
     responses:
+      200:
+        description: success
+      400:
+        description: bad request
+      401:
+        description: unauthorized access
+      403:
+        description: action forbidden
 /casetypes:
   displayName: Case Types
   post:
     responses:
+      200:
+        description: success
+      400:
+        description: bad request
+      401:
+        description: unauthorized access
+      403:
+        description: action forbidden
   get:
     responses:
+      200:
+        description: success
+      400:
+        description: bad request
+      401:
+        description: unauthorized access
+      403:
+        description: action forbidden
   put:
     responses:
+      200:
+        description: success
+      400:
+        description: bad request
+      401:
+        description: unauthorized access
+      403:
+        description: action forbidden
   delete:
     responses:
+      200:
+        description: success
+      400:
+        description: bad request
+      401:
+        description: unauthorized access
+      403:
+        description: action forbidden
+
+securitySchemes:
+  oauth_2_0:
+    description: |
+      Supporting OAuth 2.0 for authenticating all API requests.
+    type: OAuth 2.0
+    describedBy:
+      headers:
+        Authorization:
+          description: |
+             Used to send a valid OAuth 2 access token. Do not use
+             with the "access_token" query string parameter.
+          type: string
+      queryParameters:
+        access_token:
+          description: |
+             Used to send a valid OAuth 2 access token. Do not use with
+             the "Authorization" header.
+          type: string
+      responses:
+        401:
+          description: |
+              Bad or expired token. This can happen if the user or Dropbox
+              revoked or expired an access token. To fix, re-authenticate
+              the user.
+        403:
+          description: |
+              Bad OAuth request (wrong consumer key, bad nonce, expired
+              timestamp...). Unfortunately, re-authenticating the user won't help here.
