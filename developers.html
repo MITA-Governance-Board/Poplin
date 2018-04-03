@@ -4,13 +4,13 @@ title: Developers
 permalink: /developers/
 ---
 
-<h1 class="post-title">Poplin for Developers</h1>
+<h1 class="post-title">Poplin APIs for Developers</h1>
 <br><img src='/images/pins.png' alt='diagram showing Poplin as the thread between modules' />
 
 <h2>The Standard for Medicaid IT Modularity</h2>
-<p>If you work in Medicaid IT, you should know about Poplin. Poplin is using open-source software and standards to create a reference architecture that anyone can use.  We're leveraging a cross-organizational workgroup to develop a clear, consistent definition of the way that Medicaid modules interoperate.</p>
+<p>If you work in Medicaid IT, you should know about Poplin APIs. The Poplin project is using open-source software and standards to create open APIs that anyone can use.  We're leveraging a cross-organizational workgroup to develop a clear, consistent definition of the way that Medicaid modules interoperate.</p>
 
-<h2>How is the reference architecture defined?</h2>
+<h2>How is the Poplin APIs defined?</h2>
 <ul class='tech_logos'>
   <li><a href="http://www.omg.org/spec/SysML/"><img src='/images/sysml.png' alt='sysml logo' /></a>
   <li><a href="http://www.omg.org/spec/UML/"><img src='/images/uml.png' alt='uml logo' /></a>
@@ -18,12 +18,13 @@ permalink: /developers/
   <li><a href="https://github.com/OAI/OpenAPI-Specification"><img src='/images/openapi.png' alt='openapi logo' /></a>
   <li><a href="https://www.medicaid.gov/medicaid/data-and-systems/mita/mita-30/index.html"><img src='/images/mita.png' alt='mita logo' /></a>
 </ul>
-<p>The reference architecture is defined through the successive development of a series of service definitions.  These service definitions leverage a number of standards, including <a href="http://www.omg.org/spec/UML/">UML</a>, <a href="http://www.omg.org/spec/SysML/">SysML</a>, <a href="http://www.omg.org/spec/UAF/">UAF</a>, <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI Specification</a>, and <a href="https://www.medicaid.gov/medicaid/data-and-systems/mita/mita-30/index.html">MITA 3.0</a>. Each service definition is comprised of the following four artifacts:</p>
+<p>The Poplin APIs are defined through the successive development of a series of service definitions.  These service definitions leverage a number of standards, including <a href="http://www.omg.org/spec/UML/">UML</a>, <a href="http://www.omg.org/spec/SysML/">SysML</a>, <a href="http://www.omg.org/spec/UAF/">UAF</a>, <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI Specification</a>, and <a href="https://www.medicaid.gov/medicaid/data-and-systems/mita/mita-30/index.html">MITA 3.0</a>. Each service definition is comprised of the following five artifacts:</p>
 <ol>
   <li><strong>Business Process Models</strong>, which use Sys/UML diagrams to represent the functionality and flow of a system and its processes
   <li><strong>Object and Resource Models</strong>, which use Sys/UML diagrams to represent the entity composition and relationships of a system
   <li><strong>Object and Resource Definitions</strong>, which specify the nature of the data that can be exchanged with a service, what fields are included with each object, the name and type of each field, whether the field is optional or required, and cardinality of relationships with other objects (one-to-one, 0 or more, 1 or more, etc)
   <li><strong>API Definitions</strong> that (based on the above investigatory materials) tightly define the interactions between Medicaid modules
+  <li><strong>Message Definitions</string> that describe the payload and queuing style for each type of message produced by a service, for better near real-time notifications.
 </ol>
 <p>For more information, check out the Service Definition Template (TODO: link).</p>
 
