@@ -5,7 +5,7 @@ permalink: /faq/
 ---
 
 ## What is the Poplin project?
-The Poplin project seeks to develop a cohesive, free, open-source APIs for states to use in developing a modern, modular Medicaid IT system.  Like the poplin fabric that is commonly used to create scrubs for clinical staff, it is our hope that the Poplin project serves as the underlying connective fabric for future Medicaid IT systems.
+The Poplin project seeks to develop cohesive, free, open-source APIs for states to use in developing a modern, modular Medicaid IT system.  Like the poplin fabric that is commonly used to create scrubs for clinical staff, it is our hope that the Poplin project serves as the underlying connective fabric for future Medicaid IT systems.
 
 ## Why does the Poplin project exist?
 The Center for Medicaid and CHIP Services (CMCS) would like to encourage IT Vendors to provide states with modern, modular, targeted Medicaid IT solutions.  Poplin's goals are:
