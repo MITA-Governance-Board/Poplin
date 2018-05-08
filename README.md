@@ -2,7 +2,7 @@
 
 # Project Poplin
 
-This project, sponsored by the MITA Governance Board created by the Centers for Medicare & Medicaid Services (CMS), seeks to develop a cohesive, free, open-source reference architecture for states to use in developing a modern, modular Medicaid system. Like the poplin fabric that is commonly used to create scrubs for clinical staff, it is our hope that the Poplin project serves as the underlying connective fabric for future Medicaid systems.
+This project, sponsored by the MITA Governance Board created by the Centers for Medicare & Medicaid Services (CMS), seeks to develop a cohesive, free, open-source set of application programming interfaces (APIs) for states to use in developing a modern, modular Medicaid system. Like the poplin fabric that is commonly used to create scrubs for clinical staff, it is our hope that the Poplin project serves as the underlying connective fabric for future Medicaid systems.
 
 For more information, please see the Project Poplin [web site](http://www.projectpoplin.org).
 
