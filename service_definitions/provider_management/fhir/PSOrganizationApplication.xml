@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://example.org/fhir/StructureDefinition/PSOrganizationApplication" />
+  <name value="Provider Screening - Organization Application" />
+  <status value="draft" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Task" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Task" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Task.intent">
+      <path value="Task.intent" />
+      <fixedCode value="order" />
+    </element>
+    <element id="Task.code">
+      <path value="Task.code" />
+      <min value="1" />
+      <fixedCodeableConcept>
+        <text value="Poplin_PS_OrganizationApplication" />
+      </fixedCodeableConcept>
+    </element>
+    <element id="Task.input">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Parameter" />
+      </extension>
+      <path value="Task.input" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="type.coding.system" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="type" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="type.text" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Task.input:ProviderType">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Parameter" />
+      </extension>
+      <path value="Task.input" />
+      <sliceName value="ProviderType" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Task.input:ProviderType.type">
+      <path value="Task.input.type" />
+      <short value="Provider Type" />
+      <definition value="Provider Type" />
+      <fixedCodeableConcept>
+        <text value="Provider Type" />
+      </fixedCodeableConcept>
+    </element>
+    <element id="Task.input:ProviderType.value[x]:valueString">
+      <path value="Task.input.valueString" />
+      <sliceName value="valueString" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Task.input:EIN">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Parameter" />
+      </extension>
+      <path value="Task.input" />
+      <sliceName value="EIN" />
+      <short value="EIN" />
+      <definition value="Employer Identification Number" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Task.input:EIN.type">
+      <path value="Task.input.type" />
+      <short value="EIN" />
+      <definition value="EIN" />
+    </element>
+    <element id="Task.input:EIN.value[x]:valueCodeableConcept">
+      <path value="Task.input.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+    <element id="Task.input:EIN.value[x]:valueCodeableConcept.coding">
+      <path value="Task.input.valueCodeableConcept.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Task.input:EIN.value[x]:valueCodeableConcept.coding.system">
+      <path value="Task.input.valueCodeableConcept.coding.system" />
+      <short value="EIN" />
+      <definition value="Employer Identification Number" />
+      <min value="1" />
+      <fixedUri value="2.16.840.1.113883.4.4" />
+    </element>
+    <element id="Task.input:NPI">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Parameter" />
+      </extension>
+      <path value="Task.input" />
+      <sliceName value="NPI" />
+      <code>
+        <system value="http://hl7.org/fhir/sid/us-npi" />
+      </code>
+      <short value="NPI" />
+      <definition value="National Provider Identification number" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Task.input:NPI.value[x]:valueCodeableConcept">
+      <path value="Task.input.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+    <element id="Task.input:Address">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Parameter" />
+      </extension>
+      <path value="Task.input" />
+      <sliceName value="Address" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Task.input:Address.type">
+      <path value="Task.input.type" />
+      <short value="Provider Address" />
+      <definition value="Provider Address" />
+    </element>
+    <element id="Task.input:Address.value[x]:valueAddress">
+      <path value="Task.input.valueAddress" />
+      <sliceName value="valueAddress" />
+      <type>
+        <code value="Address" />
+      </type>
+    </element>
+    <element id="Task.input:Address.value[x]:valueAddress.use">
+      <path value="Task.input.valueAddress.use" />
+      <min value="1" />
+      <fixedCode value="work" />
+    </element>
+    <element id="Task.input:Address.value[x]:valueAddress.line">
+      <path value="Task.input.valueAddress.line" />
+      <min value="1" />
+    </element>
+    <element id="Task.input:Address.value[x]:valueAddress.city">
+      <path value="Task.input.valueAddress.city" />
+      <min value="1" />
+    </element>
+    <element id="Task.input:Address.value[x]:valueAddress.state">
+      <path value="Task.input.valueAddress.state" />
+      <min value="1" />
+    </element>
+    <element id="Task.input:Address.value[x]:valueAddress.postalCode">
+      <path value="Task.input.valueAddress.postalCode" />
+      <min value="1" />
+    </element>
+    <element id="Task.input:Address.value[x]:valueAddress.country">
+      <path value="Task.input.valueAddress.country" />
+      <min value="1" />
+    </element>
+    <element id="Task.input:Telephone">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Parameter" />
+      </extension>
+      <path value="Task.input" />
+      <sliceName value="Telephone" />
+    </element>
+    <element id="Task.input:Telephone.type">
+      <path value="Task.input.type" />
+      <short value="Telephone" />
+      <definition value="Telephone" />
+    </element>
+    <element id="Task.input:Telephone.value[x]:valueString">
+      <path value="Task.input.valueString" />
+      <sliceName value="valueString" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
