@@ -1,0 +1,198 @@
+Grammar:	Map 5.0
+Namespace: poplin.core
+Target:		FHIR_STU_3
+
+// from shr.core (master)
+Address maps to Address:
+	Purpose maps to use
+	Type maps to type
+	DisplayText maps to text
+	AddressLine maps to line
+	City maps to city
+	District maps to district
+	State maps to state
+	PostalCode maps to postalCode
+	Country maps to country
+	EffectiveTimePeriod maps to period
+
+HumanName maps to HumanName:
+	Value maps to text
+	HumanNamePrefix maps to prefix
+	GivenName maps to given
+	FamilyName maps to family
+	HumanNameSuffix maps to suffix
+	Purpose maps to use
+	EffectiveTimePeriod maps to period
+
+Geoposition maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-location:
+	constrain position to 1..1
+	Latitude maps to position.latitude
+	Longitude maps to position.longitude
+	Altitude maps to position.altitude
+	
+Identifier maps to Identifier:
+	Value maps to value
+	Purpose maps to use
+	Type maps to type
+	CodeSystem maps to system 
+	EffectiveTimePeriod maps to period
+	Issuer maps to assigner
+	
+ContactPoint maps to ContactPoint:
+	TelecomNumberOrAddress maps to value
+	Type maps to system
+	Purpose maps to use
+	Priority maps to rank
+	EffectiveTimePeriod maps to period	
+	
+ContactDetail maps to ContactDetail:
+	HumanName.Value maps to name
+	ContactPoint maps to telecom
+
+Timing maps to Timing:
+	OccurrenceTime maps to event
+	TimingCode maps to code
+	EventDuration.Value.LowerBound maps to repeat.duration
+	EventDuration.Value.UpperBound maps to repeat.durationMax
+	EventDuration.Value.LowerBound.Value.Units.Value.Value maps to repeat.durationUnit
+	RecurrencePattern.RecurrenceInterval.Value maps to repeat.period
+	constrain repeat.periodMax to 0..0
+	RecurrencePattern.RecurrenceInterval.Value.Units.Value.Value maps to repeat.periodUnit
+	RecurrencePattern.DayOfWeek maps to repeat.dayOfWeek
+	RecurrencePattern.TimeOfDay maps to repeat.timeOfDay
+	RecurrencePattern.DailyLifeEvent maps to repeat.when
+	RecurrencePattern.LifeEventOffset maps to repeat.offset
+	RecurrencePattern.CountPerInterval.MinCount maps to repeat.frequency
+	RecurrencePattern.CountPerInterval.MaxCount maps to repeat.frequencyMax
+	
+Attachment maps to Attachment:
+	BinaryData maps to data
+	ContentType maps to contentType
+	Language maps to language
+	ResourceLocation maps to url
+	ResourceSize maps to size
+	Hash maps to hash
+	Title maps to title
+	CreationTime maps to creation
+	
+Signature maps to Signature:
+	TypeAsaCoding maps to type
+	CreationTime maps to when
+	Signatory maps to who[x]
+	OnBehalfOf maps to onBehalfOf[x]
+	ContentType maps to contentType
+	BinaryData maps to blob
+	
+SampledData maps to SampledData:
+	Value maps to data
+	Origin maps to origin
+	MillisecondsBetweenSamples maps to period
+	CorrectionFactor maps to factor
+	LowerLimit maps to lowerLimit
+	UpperLimit maps to upperLimit
+	Dimensions maps to dimensions
+
+// from shr.entity (master)
+
+// Patient maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient:
+// 	Value.ActiveFlag maps to active
+// 	Value.HumanName maps to name
+// 	Value.AdministrativeGender maps to gender
+// 	Value.Headshot maps to photo
+// 	Value.Address maps to address
+// 	Value.ContactPoint maps to telecom
+// 	Value.LanguageUsed maps to communication
+// 	Value.DateOfBirth maps to birthDate
+// 	PlaceOfBirth maps to http://hl7.org/fhir/StructureDefinition/birthPlace
+// 	MultipleBirth maps to multipleBirth[x].boolean
+// 	MultipleBirth.MultipleBirthOrder maps to multipleBirth[x].integer
+// 	BirthSex maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
+// 	Race maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-race
+// 	Ethnicity maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity
+// 	MaritalStatus maps to maritalStatus
+// 	MothersMaidenName maps to http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName
+// 	MedicalInterpreterNeeded maps to http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired
+// 	Deceased maps to deceased[x].boolean
+// 	Deceased.DateOfDeath maps to deceased[x].dateTime
+
+// Practitioner maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner:
+// 	Value.ActiveFlag maps to active
+// 	Value.HumanName maps to name
+// 	Value.AdministrativeGender maps to gender
+// 	Value.Headshot maps to photo
+// 	Value.Address maps to address
+// 	Value.ContactPoint maps to telecom
+// 	Value.LanguageUsed maps to communication
+// 	NationalProviderIdentifier maps to identifier
+// 	Qualification maps to qualification
+// 	Qualification.Type maps to qualification.code
+// 	Qualification.EffectiveTimePeriod maps to qualification.period
+// 	Qualification.Issuer maps to qualification.issuer
+
+RelatedPerson maps to RelatedPerson:
+	Value.ActiveFlag maps to active
+	Value.HumanName maps to name
+	Value.DateOfBirth maps to birthDate
+	Value.AdministrativeGender maps to gender
+	Value.Address maps to address
+	Value.Headshot maps to photo
+	Value.ContactPoint maps to telecom
+	RelationshipType maps to relationship
+	EffectiveTimePeriod maps to period
+
+Organization maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization:
+	OrganizationName maps to name
+	OrganizationAlias maps to alias  // I wish FHIR allowed multiple names, but it doesn't
+	Type maps to type
+	OrganizationIdentifier maps to identifier
+	Address maps to address
+	ContactPoint maps to telecom
+	ActiveFlag maps to active
+	PartOf.Value maps to partOf
+	ContactPoint maps to contact
+
+// Group maps to Group:
+// 	ActiveFlag maps to active
+// 	Type maps to type
+// 	Definitional maps to actual
+// 	constrain code to 0..0
+// 	Title maps to name
+// 	MembershipCriterion maps to characteristic.value[x]
+// 	MembershipCriterion.ObservationCode maps to characteristic.code
+// 	MembershipCriterion.ExcludeFlag maps to characteristic.exclude
+// 	MembershipCriterion.TimePeriod maps to characteristic.period
+// 	Member.Value maps to member.entity
+// 	Member.ParticipationPeriod maps to member.period
+// 	Member.ActiveFlag maps to member.inactive // TODO this is an inverse TF mapping
+// 	Count maps to quantity
+	
+Facility maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-location:
+	FacilityName maps to name
+	Location[Address] maps to address
+	Location[Geoposition].Latitude maps to position.latitude
+	Location[Geoposition].Longitude maps to position.longitude
+	Location[Geoposition].Altitude maps to position.altitude
+	// Location[GeopoliticalLocation] maps to address // Can't do this since address is 0..1 and already mapped above
+	ContactPoint maps to telecom
+	ManagingOrganization maps to managingOrganization
+	Type maps to type
+
+Substance maps to Substance:
+	Type maps to code
+	Ingredient maps to ingredient
+	Ingredient.IngredientAmount maps to ingredient.quantity
+	Ingredient.Value maps to ingredient.substance[x]
+
+Medication maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication:
+	Type maps to code
+	DoseForm maps to form
+	MedicationIngredient.Value maps to ingredient.item[x]
+	MedicationIngredient.IngredientAmount maps to ingredient.amount
+	MedicationIngredient.IsActiveIngredient maps to ingredient.isActive
+	Brand maps to isBrand
+	OverTheCounter maps to isOverTheCounter
+	Manufacturer maps to manufacturer
+	constrain package.batch to 0..1
+	LotNumber maps to package.batch.lotNumber
+	ExpirationDate maps to package.batch.expirationDate
+	Package maps to package.container

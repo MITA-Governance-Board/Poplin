@@ -1,0 +1,173 @@
+Grammar:		DataElement 5.0
+Namespace:		shr.core
+Description:	"The SHR Core domain contains definitions for a variety of general-purpose elements that are used widely in SHR. These include definitions for coding, expressions of time, quantities, addresses, names, and more. 
+
+Relationship to CIMI:
+The datatypes in the breast cancer model have been chosen to align with FHIR, not CIMI. Mapping CIMI datatypes was not attempted. Introducing profiles such as CIMI-Quantity, CIMI-CodeableConcept, etc. would lead to unnecessary complication in the resultant profiles."
+Uses:			shr.base
+
+Path:			FHIR = http://hl7.org/fhir/ValueSet
+CodeSystem:     LNC = http://loinc.org
+CodeSystem:     SCT = http://snomed.info/sct
+CodeSystem:     MTH = http://ncimeta.nci.nih.gov
+CodeSystem:     UCUM = http://unitsofmeasure.org 
+
+
+//------------ Complex Types aligned with FHIR ---------------
+
+Element:		Quantity
+Description:	"A quantity with units, whose value may be bounded from above or below, as defined in FHIR.
+
+This definition is not fully consistent with CIMI V0.0.4 (whose definition of Quantity lacks a comparator, but includes numerical precision). Complex data types that appear frequently in FHIR have not been profiled, even if CIMI defines them differently. This choice means that the breast cancer profiles use the native FHIR datatype, rather than having to substitute a CIMI profile everywhere the native type is used."
+Value:			0..1 decimal
+0..1			Comparator
+0..1			Units
+
+		Element:		Comparator
+		Value:			code from http://hl7.org/fhir/ValueSet/quantity-comparator
+
+		Element:		Units
+		Concept:		TBD
+		Description:	"Code for the unit of measure of the quantity."
+		Value:			Coding from http://hl7.org/fhir/ValueSet/ucum-units
+
+		
+Element:		SimpleQuantity
+Based on:		Quantity
+Description:	"A quantity where the comparator is not used, as defined in FHIR.
+
+This class is not defined in CIMI V0.0.4 reference model. It could potentially be an archetype of Quantity. Complex data types that appear frequently in FHIR have not been profiled, even if CIMI defines them differently. This choice means that the breast cancer profiles use the native FHIR datatype, rather than having to substitute a CIMI profile everywhere the native type is used."
+0..0			Comparator
+
+Element:		Age
+Based on:		Quantity
+Concept:		MTH#C0001779
+Description:	"How long something has existed in time."
+				Units with Coding from http://hl7.org/fhir/ValueSet/units-of-time
+
+
+//---- Coding departs from CIMI to align with FHIR
+
+Element:		Coding
+Concept:		MTH#C0805701
+Description:	"Coding of a concept, drawn from a controlled vocabulary. Includes the vocabulary and version, if applicable. May include a display text, and a descriptor expressing the intended interpretation of the code.
+
+A corresponding type does not exist in CIMI V0.0.4. Complex data types that appear frequently in FHIR have not been profiled, even if CIMI defines them differently. This choice means that the breast cancer profiles use the native FHIR datatype, rather than having to substitute a CIMI profile everywhere the native type is used."
+Value:			0..1 code
+0..1			CodeSystem
+0..1 			CodeSystemVersion
+0..1			DisplayText
+
+	Element:		CodeSystem
+	Concept:		TBD
+	Description:	"A formal terminology system."
+	Value:			uri
+
+	Element:		CodeSystemVersion
+	Concept:		TBD
+	Description:	"The version of the vocabulary being used, if applicable."
+	Value:			string // Should be id type in FHIR, but it is a string (no issue recorded yet)
+	
+Element:		CodeableConcept
+Concept:		TBD
+Description:	"A set of codes drawn from different coding systems, representing the same concept."
+0..*			Coding
+0..1			DisplayText
+
+Element:		Range
+Concept:		TBD
+Description:	"An interval defined by a quantitative upper and/or lower bound. One of the two bounds must be specified, and the lower bound must be less than the upper bound. When Quantities are specified, the units of measure must be the same."
+0..1			LowerBound value is type SimpleQuantity
+0..1			UpperBound value is type SimpleQuantity
+
+	Element:		LowerBound
+	Concept:		TBD
+	Description:	"The lower limit on a range"
+	Value:			Quantity  // or decimal or unsignedInt or integer 
+
+	Element:		UpperBound
+	Concept:		TBD
+	Description:	"The upper limit on a quantitative value."
+	Value:			Quantity  // or decimal or unsignedInt or integer 
+
+Element:		PercentageRange
+Based on:		Range
+Description:	"A range of percentage values."
+0..1			LowerBound value is type Percentage
+0..1			UpperBound value is type Percentage
+	
+Element:		Ratio
+Concept:		MTH#C0456603
+Description:	"A unit of measurement for the quotient of the amount of one entity to another."
+1..1			Numerator
+1..1			Denominator
+
+	Element:		Numerator
+	Concept:		MTH#C2825219
+	Description:	"The dividend of a fraction."
+	Value:			Quantity
+
+	Element:		Denominator
+	Concept:		MTH#C2825218
+	Description:	"The divisor of a fraction."
+	Value:			Quantity
+
+
+Element:		TimePeriod
+Concept:		MTH#C1948053
+Description:	"A period of time defined by a start and end time, date, or year. 
+
+If the start element is missing, the start of the period is not known. If the end element is missing, it means that the period is ongoing, or the start may be in the past, and the end date in the future, which means that period is expected/planned to end at the specified time. The end value includes any matching date/time. For example, the period 2011-05-23 to 2011-05-27 includes all the times from the start of the 23rd May through to the end of the 27th of May."
+0..1			TimePeriodStart
+0..1			TimePeriodEnd  // lack of end time indicates the period was continuing at the time the entry was created
+
+	Element: 		TimePeriodStart    // synonym "EffectiveDate"
+	Concept: 		MTH#C1301880
+	Description: 	"The time at which something is to take effect, start, or did start. Boundary is considered inclusive."
+	Value:			dateTime   // TODO: would like to have date or dateTime but that wouldn't be FHIR-compatible
+
+	Element:		TimePeriodEnd
+	Concept:		MTH#C1522314
+	Description:	"The time at which something is to end or did end. Boundary is considered inclusive."
+	Value:			dateTime   // TODO: would like to have date or dateTime but that wouldn't be FHIR-compatible
+
+	
+//------------ Complex Data Types not in FHIR ----------------
+
+
+Element:		Percentage
+Based on:		SimpleQuantity
+Concept:		MTH#C0439165
+Description:	"A percentage value where 100.0 represents 100%."
+				Units.Coding is UCUM#%
+
+Element:		ClockDirection
+Concept:		LNC#72294-2
+Description:	"A direction indicated by an angle relative to 12 o'clock."
+Value:			CodeableConcept from ClockDirectionVS
+
+
+// -----------  Age --------------------------
+
+Element:		AgeRange
+Concept:		TBD
+Description:	"A quantitative range of ages. One of the two ages must be specified."
+// Since Lower and Upper bounds in Range are based on SimpleQuantity and Age is based on Quantity, there is no way to make AgeRange a subtype of Range
+0..1			UpperBound value is type Age
+0..1			LowerBound value is type Age
+
+
+Element:		ReceivedTime
+Concept:		MTH#C2735124	
+Description:	"Time received by accepting facility or unit."
+Value:			dateTime
+
+Element:		DisplayText
+Concept:		MTH#C1548311
+Description:	"A string meant for reading by a person, for example, accompanying a code."
+Value:			string
+
+Element:		Category
+Concept:		TBD
+Description:	"A class or division of people or things having particular shared characteristics"
+Value:			CodeableConcept

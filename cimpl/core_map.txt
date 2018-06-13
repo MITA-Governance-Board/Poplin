@@ -1,0 +1,44 @@
+Grammar:	Map 5.1
+Namespace:	shr.core
+Target:		FHIR_STU_3
+
+
+// Code types map direction to FHIR
+Coding maps to Coding:
+	Value maps to code
+	CodeSystem maps to system
+	CodeSystemVersion maps to version
+	DisplayText maps to display
+
+CodeableConcept maps to CodeableConcept:
+	Coding maps to coding
+	DisplayText maps to text
+
+Quantity maps to Quantity:
+	Value maps to value
+	Units.Coding.code maps to code
+	Units.Coding.CodeSystem maps to system
+	Units.Coding.DisplayText maps to unit
+	Comparator maps to comparator
+	
+SimpleQuantity maps to SimpleQuantity:
+
+
+// The following are profiles on Quantity; no additional attributes are defined in SHR
+Age maps to Age:
+
+TimePeriod maps to Period:
+	TimePeriodStart maps to start
+	TimePeriodEnd maps to end
+
+Range maps to Range:
+ 	LowerBound maps to low
+	UpperBound maps to high
+
+Ratio maps to Ratio:
+	Numerator maps to numerator
+	Denominator maps to denominator
+
+	
+
+		
