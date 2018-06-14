@@ -124,7 +124,7 @@ Practitioner maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-pra
 	Value.ContactPoint maps to telecom
 	Value.LanguageUsed maps to communication
 	NationalProviderIdentifier maps to identifier
-	fix identifier.system to http://hl7.org/fhir/sid/us-npi
+	// fix identifier.system to http://hl7.org/fhir/sid/us-npi
 	Qualification maps to qualification
 	Qualification.Type maps to qualification.code
 	Qualification.EffectiveTimePeriod maps to qualification.period

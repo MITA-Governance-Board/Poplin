@@ -749,6 +749,7 @@ Description:	"A person who practices a healing art."
 	Concept:		MTH#C1549728
 	Description:	"A unique 10-digit number to allow US healthcare providers to identify themselves in a standard way throughout the healthcare industry."
 	1..1			CodeSystem
+	CodeSystem.Value is http://hl7.org/fhir/sid/us-npi
 
 	Element:		Qualification
 	Concept:		MTH#C0037778
