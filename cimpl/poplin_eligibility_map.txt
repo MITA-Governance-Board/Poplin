@@ -1,0 +1,13 @@
+Grammar:    Map 5.0
+Namespace:  poplin.ee
+Target:     FHIR_STU_3
+
+EligibilityRequest maps to EligibilityRequest:
+    BusinessID maps to identifier
+    Presence maps to status
+    Flag maps to priority
+    Record maps to patient
+    Benefit maps to benefitCategory
+    Subbenefit maps to benefitSubCategory
+    ServiceDate maps to serviced[x].servicedDate
+    ServicePeriod maps to serviced[x].servicedPeriod

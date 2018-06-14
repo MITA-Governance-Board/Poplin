@@ -1,0 +1,38 @@
+Grammar:         DataElement 5.0
+Namespace:       poplin.ee
+Description:    "This is a description"
+Uses:            shr.core, shr.base, poplin.core
+
+CodeSystem:      EPRIOR = http://hl7.org/fhir/processpriority
+CodeSystem:      ESTAT = http://hl7.org/fhir/fm-status
+
+EntryElement:	EligibilityRequest
+Description:    "describe"
+1..1    BusinessID
+1..1    Presence
+1..1    Flag
+1..1    Record
+1..1    Benefit
+1..1    Subbenefit
+1..1    ServiceDate
+1..1    ServicePeriod
+
+    Element:        BusinessID
+    Description:    "describe"
+    Based on:       Identifier
+
+    Element:        Presence
+    Description:    "describe"
+    Value:          code from ESTAT
+
+    Element:        Flag
+    Description:    "describe"
+    Value:          code from EPRIOR
+
+    Element:        Record
+    Description:    "describe"
+    Value:          ref(Patient)
+
+    Element:        ServiceDate
+    Description:    "describe"
+    Value:          date
