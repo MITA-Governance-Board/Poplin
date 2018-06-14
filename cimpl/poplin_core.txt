@@ -622,7 +622,7 @@ Description:	"A person in the role of a patient, including extended demographic 
 0..1			MedicalInterpreterNeeded
 0..1			Deceased
 // Added to make the mapping work
-1..1			AdministrativeGender
+// 1..1			AdministrativeGender
 1..1			HumanName
 
 	Element:   		PlaceOfBirth
@@ -748,6 +748,7 @@ Description:	"A person who practices a healing art."
 	Based on:		Identifier
 	Concept:		MTH#C1549728
 	Description:	"A unique 10-digit number to allow US healthcare providers to identify themselves in a standard way throughout the healthcare industry."
+	1..1			CodeSystem
 
 	Element:		Qualification
 	Concept:		MTH#C0037778
