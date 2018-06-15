@@ -97,7 +97,7 @@ SampledData maps to SampledData:
 Patient maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient:
 	Value.ActiveFlag maps to active
 	HumanName maps to name
-	// AdministrativeGender maps to gender
+	AdministrativeGender maps to gender
 	Value.Headshot maps to photo
 	Value.Address maps to address
 	Value.ContactPoint maps to telecom
@@ -118,13 +118,14 @@ Patient maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient:
 Practitioner maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner:
 	Value.ActiveFlag maps to active
 	HumanName maps to name
-	// AdministrativeGender maps to gender
+	Value.AdministrativeGender maps to gender
 	Value.Headshot maps to photo
 	Value.Address maps to address
 	Value.ContactPoint maps to telecom
 	Value.LanguageUsed maps to communication
 	NationalProviderIdentifier maps to identifier
-	// fix identifier.system to http://hl7.org/fhir/sid/us-npi
+	// TODO: Move this fix statement to the DataElement definition for NPI
+	fix identifier.system to http://hl7.org/fhir/sid/us-npi
 	Qualification maps to qualification
 	Qualification.Type maps to qualification.code
 	Qualification.EffectiveTimePeriod maps to qualification.period

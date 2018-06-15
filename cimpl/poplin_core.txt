@@ -622,7 +622,7 @@ Description:	"A person in the role of a patient, including extended demographic 
 0..1			MedicalInterpreterNeeded
 0..1			Deceased
 // Added to make the mapping work
-// 1..1			AdministrativeGender
+1..1			AdministrativeGender
 1..1			HumanName
 
 	Element:   		PlaceOfBirth
@@ -749,7 +749,8 @@ Description:	"A person who practices a healing art."
 	Concept:		MTH#C1549728
 	Description:	"A unique 10-digit number to allow US healthcare providers to identify themselves in a standard way throughout the healthcare industry."
 	1..1			CodeSystem
-	CodeSystem.Value is http://hl7.org/fhir/sid/us-npi
+	// TODO: https://github.com/standardhealth/shr-cli/issues/30
+	// CodeSystem.Value is http://hl7.org/fhir/sid/us-npi
 
 	Element:		Qualification
 	Concept:		MTH#C0037778
