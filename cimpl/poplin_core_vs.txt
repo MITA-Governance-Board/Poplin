@@ -38,13 +38,9 @@ UCUM#in-us			"Inch"
 UCUM#mi_us			"Mile"
 
 ValueSet:				YesNoVS
+Description:    "A simple value set containing the values Yes (or true) and No (or false)"
 #yes					"Yes, or true"
 #no						"No, or false"
-
-ValueSet: 				YesNoUnknownVS
-#yes					"Yes, or true"
-#no						"No, or false"
-#unknown				"Unknown"
 
 ValueSet: 		SettingVS
 Description:	"What type of place is found at a given location. More than one descriptor may be applicable."
@@ -93,6 +89,7 @@ Description:	"A simple performance grading scale. Also useful for grading qualit
 #poor			"Poor"
 
 ValueSet:			LanguageQualifierVS
+Description:  "A qualification of an individual's ability to communicate in a particular language."
 #preferred_spoken	"Preferred language"
 #secondary_spoken	"Secondary language"
 #apraxia			"Difficulty speaking due to motor disorder"

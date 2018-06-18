@@ -141,11 +141,6 @@ Concept:		MTH#C0439165
 Description:	"A percentage value where 100.0 represents 100%."
 				Units.Coding is UCUM#%
 
-Element:		ClockDirection
-Concept:		LNC#72294-2
-Description:	"A direction indicated by an angle relative to 12 o'clock."
-Value:			CodeableConcept from ClockDirectionVS
-
 
 // -----------  Age --------------------------
 

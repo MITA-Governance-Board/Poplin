@@ -93,7 +93,6 @@ SampledData maps to SampledData:
 	Dimensions maps to dimensions
 
 // from shr.entity (master)
-
 Patient maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient:
 	Value.ActiveFlag maps to active
 	HumanName maps to name
@@ -103,7 +102,7 @@ Patient maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient:
 	Value.ContactPoint maps to telecom
 	Value.LanguageUsed maps to communication
 	Value.DateOfBirth maps to birthDate
-	PlaceOfBirth maps to http://hl7.org/fhir/StructureDefinition/birthPlace
+	// PlaceOfBirth maps to http://hl7.org/fhir/StructureDefinition/birthPlace
 	MultipleBirth maps to multipleBirth[x].boolean
 	MultipleBirth.MultipleBirthOrder maps to multipleBirth[x].integer
 	BirthSex maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
@@ -153,20 +152,20 @@ Organization maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-org
 	PartOf.Value maps to partOf
 	ContactPoint maps to contact
 
-// Group maps to Group:
-// 	ActiveFlag maps to active
-// 	Type maps to type
-// 	Definitional maps to actual
-// 	constrain code to 0..0
-// 	Title maps to name
-// 	MembershipCriterion maps to characteristic.value[x]
-// 	MembershipCriterion.ObservationCode maps to characteristic.code
-// 	MembershipCriterion.ExcludeFlag maps to characteristic.exclude
-// 	MembershipCriterion.TimePeriod maps to characteristic.period
-// 	Member.Value maps to member.entity
-// 	Member.ParticipationPeriod maps to member.period
-// 	Member.ActiveFlag maps to member.inactive // TODO this is an inverse TF mapping
-// 	Count maps to quantity
+Group maps to Group:
+	ActiveFlag maps to active
+	Type maps to type
+	Definitional maps to actual
+	constrain code to 0..0
+	Title maps to name
+	MembershipCriterion maps to characteristic.value[x]
+	MembershipCriterion.ObservationCode maps to characteristic.code
+	MembershipCriterion.ExcludeFlag maps to characteristic.exclude
+	MembershipCriterion.TimePeriod maps to characteristic.period
+	Member.Value maps to member.entity
+	Member.ParticipationPeriod maps to member.period
+	Member.ActiveFlag maps to member.inactive // TODO this is an inverse TF mapping
+	Count maps to quantity
 	
 Facility maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-location:
 	FacilityName maps to name
