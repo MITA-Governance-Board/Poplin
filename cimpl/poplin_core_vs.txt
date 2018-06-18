@@ -98,3 +98,8 @@ Description:  "A qualification of an individual's ability to communicate in a pa
 #braille			"Reads using braille"
 #lipreads			"Uses lipreading (speechreading)"
 #aac				"Uses augmentative and alternative communication"
+
+ValueSet: PoplinActivityVS
+Description:  "A code that briefly describes an activity taking place in Medicaid"
+#ps_organization_application  "Provider Screening Application for and Organization"
+#ps_provider_application  "Provider Screening Application for an Individual Provider"

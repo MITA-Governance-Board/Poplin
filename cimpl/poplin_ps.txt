@@ -1,0 +1,71 @@
+Grammar:         DataElement 5.0
+Namespace:       poplin.ps
+Description:     "Provider Screening includes administrative tasks supporting the determination of a provider's eligibility for participation in the Medicaid program."
+Uses:            shr.core, shr.base, poplin.core
+
+EntryElement:	OrganizationApplication 
+Description:    "A screening application for a healthcare organization"
+1..1      PoplinCode is #psOrganizationApplication
+1..1      ProviderType // No value set exists because this is different in every state
+1..1      OrganizationName
+1..1      EmployerIdentificationNumber
+1..1      NationalProviderIdentifier
+1..1      ProviderAddress // One address? Many?
+1..1      ProviderTelephone // One telephone? Many?
+1..1      EFTAccepted
+1..1      ElectronicClaimsAccepted
+0..*      IntegrityCheck
+
+EntryElement:	ProviderApplication 
+Description:    "A screening application for a healthcare provider"
+1..1      PoplinCode is #psProviderApplication
+1..1      ProviderType // No value set exists because this is different in every state
+1..1      ProviderName
+1..1      ProviderDOB
+1..1      SocialSecurityNumber
+1..1      NationalProviderIdentifier
+1..1      ProviderAddress // One address? Many?
+1..1      ProviderTelephone // One telephone? Many?
+1..1      EFTAccepted
+1..1      ElectronicClaimsAccepted
+0..*      IntegrityCheck
+
+  Element:      PoplinCode
+  Description:  "A code that briefly describes the activity"
+  Value:        CodeableConcept from PoplinActivityVS // Using a local, poplin-specific code set for this
+
+  Element:      IntegrityCheck
+  Description:  "A code that describes which integrity checks are relevant for a particular provider screening application"
+  Value:        CodeableConcept from IntegrityCheckVS // Using a local, poplin-specific code set for this
+
+  Element:      EFTAccepted
+  Description:  "Indicates whether the provider or provider organization accepts and processes Electronic Funds Transfer (EFT)"
+  Value:        boolean
+
+  Element:      ElectronicClaimsAccepted
+  Description:  "Indicates whether the provider or provider organization accepts and processes Electronic Claims"
+  Value:        boolean
+
+  Element:      ProviderType
+  Description:  "Provider Type"
+  Value:        string // This should be a code system, but there is no consistent enumeration of Provider Types that are common across the United States
+
+  Element:      ProviderDOB
+  Based on:     DateOfBirth
+  Description:  "Provider Date of Birth"
+  Value:        date
+
+  Element:      ProviderName
+  Description:  "Provider Name"
+  Value:        HumanName
+
+  Element:      ProviderTelephone
+  Description:  "Provider Telephone Number"
+  Based on:     Telephone
+  0..1			    Purpose is #work
+
+  Element:      ProviderAddress
+  Description:  "Physical and mailing address of a provider"
+  Based on:     Address
+  1..1          Purpose is #work
+  1..1          Type is #both // Both mailing and physical location

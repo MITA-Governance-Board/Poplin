@@ -1,0 +1,15 @@
+Grammar:	ValueSet 5.0
+Namespace:	poplin.ps
+
+ValueSet: IntegrityCheckVS
+Description:  "A code that describes which integrity checks are relevant for a particular provider screening application"
+#ssa_death_master "Social Security Agency Death Master File"
+#nppes "National Plan and Provider Enumeration System"
+#oig_leie "Office of Inspector General List of Excluded Individuals/Entities"
+#gsa_sam "General Services Administration System for Award Management"
+#state_licensing "Check against a relevant state licensing system"
+#hipdb "Healthcare Integrity and Protection Data Bank"
+#npdb "National Practitioner Data Bank"
+#pdmp "State Prescription Drug Monitoring Program"
+#tax "Tax ID Primary Sources"
+#ownership_disclosure "Ownership Disclosure"

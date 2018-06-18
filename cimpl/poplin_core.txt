@@ -97,6 +97,12 @@ Value:			string  // or id or code or CodeableConcept?
 0..1			EffectiveTimePeriod
 0..1			Issuer
 
+Element:    Telephone
+// TODO: Concept Code
+Description: "A telephone number for contacting an organization or individual"
+Based on: ContactPoint
+1..1			Type is #phone
+
 Element:   		ContactPoint
 Concept:		MTH#C2986441
 Description:	"An electronic means of contacting an organization or individual."
@@ -685,7 +691,7 @@ Description:	"A person in the role of a patient, including extended demographic 
 	Description:	"The name of the father as it was or likely to have been recorded on the birth certificate of the subject; most likely the name of the father at the time of birth of the subject."
 	Value:			HumanName
 
-	// TODO: change this to be based on Identifier
+	// TODO: change this to be based on Identifier with codesystem http://hl7.org/fhir/sid/us-ssn
 	Element: 		SocialSecurityNumber
 	Concept:		MTH#C1301821
 	Description:	"A US social security number (SSN)."
@@ -752,6 +758,14 @@ Description:	"A person who practices a healing art."
 	1..1			CodeSystem
 	// TODO: https://github.com/standardhealth/shr-cli/issues/30
 	// CodeSystem.Value is http://hl7.org/fhir/sid/us-npi
+
+	Element: 		EmployerIdentificationNumber
+	Based on:		Identifier
+	Concept:		MTH#C4071521
+	Description:	"A unique 10-digit number to allow US healthcare providers to identify themselves in a standard way throughout the healthcare industry."
+	1..1			CodeSystem
+	// TODO: https://github.com/standardhealth/shr-cli/issues/30
+	// CodeSystem.Value is urn:oid:2.16.840.1.113883.4.4
 
 	Element:		Qualification
 	Concept:		MTH#C0037778
