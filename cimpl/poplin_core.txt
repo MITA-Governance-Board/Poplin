@@ -691,11 +691,13 @@ Description:	"A person in the role of a patient, including extended demographic 
 	Description:	"The name of the father as it was or likely to have been recorded on the birth certificate of the subject; most likely the name of the father at the time of birth of the subject."
 	Value:			HumanName
 
-	// TODO: change this to be based on Identifier with codesystem http://hl7.org/fhir/sid/us-ssn
 	Element: 		SocialSecurityNumber
+	Based on:		Identifier
 	Concept:		MTH#C1301821
 	Description:	"A US social security number (SSN)."
-	Value:			string   // note that missing value reasons include "none" - meaning the subject does not have a SSN
+	1..1			CodeSystem
+	// TODO: https://github.com/standardhealth/shr-cli/issues/30
+	// CodeSystem.Value is http://hl7.org/fhir/sid/us-ssn
 
 	Element:		DriversLicenseNumber
 	Concept:		TBD
@@ -741,7 +743,8 @@ Description:	"A person who practices a healing art."
 				Value is type ref(Person)
 //1..1			HumanName   // only one (limitation imposed by us-core)
 // 0..*			Affiliation // handled by ProviderRelationship in FHIR
-1..1    		NationalProviderIdentifier
+0..1    		NationalProviderIdentifier
+0..1				SocialSecurityNumber
 0..*    		Qualification
 // Added to make the mapping work
 1..1				HumanName
@@ -829,6 +832,18 @@ Description:    "A social or legal structure formed by human beings."
 	Description:	"The larger entity that this is a portion of."
 	Value:			ref(Content)
 
+	Element:		Focus
+	Concept:		TBD
+	Description:	"The subject of a particular action."
+	Value:			ref(Content)
+
+
+EntryElement: ProviderOrganization
+Description:  "An organization that provides healthcare services"
+Based on:     Organization
+1..1          Type is #prov
+0..1          EmployerIdentificationNumber
+0..1          NationalProviderIdentifier
 	
 Element:	Group
 Based on:		Entity

@@ -5,30 +5,21 @@ Uses:            shr.core, shr.base, poplin.core
 
 EntryElement:	OrganizationApplication 
 Description:    "A screening application for a healthcare organization"
-1..1      PoplinCode is #psOrganizationApplication
+1..1      PoplinCode is #ps_organization_application
 1..1      ProviderType // No value set exists because this is different in every state
-1..1      OrganizationName
-1..1      EmployerIdentificationNumber
-1..1      NationalProviderIdentifier
-1..1      ProviderAddress // One address? Many?
-1..1      ProviderTelephone // One telephone? Many?
 1..1      EFTAccepted
 1..1      ElectronicClaimsAccepted
 0..*      IntegrityCheck
+1..1      Focus value is type ref(ProviderOrganization)
 
 EntryElement:	ProviderApplication 
 Description:    "A screening application for a healthcare provider"
-1..1      PoplinCode is #psProviderApplication
+1..1      PoplinCode is #ps_provider_application
 1..1      ProviderType // No value set exists because this is different in every state
-1..1      ProviderName
-1..1      ProviderDOB
-1..1      SocialSecurityNumber
-1..1      NationalProviderIdentifier
-1..1      ProviderAddress // One address? Many?
-1..1      ProviderTelephone // One telephone? Many?
 1..1      EFTAccepted
 1..1      ElectronicClaimsAccepted
 0..*      IntegrityCheck
+1..1      Focus value is type ref(Practitioner)
 
   Element:      PoplinCode
   Description:  "A code that briefly describes the activity"
@@ -49,23 +40,3 @@ Description:    "A screening application for a healthcare provider"
   Element:      ProviderType
   Description:  "Provider Type"
   Value:        string // This should be a code system, but there is no consistent enumeration of Provider Types that are common across the United States
-
-  Element:      ProviderDOB
-  Based on:     DateOfBirth
-  Description:  "Provider Date of Birth"
-  Value:        date
-
-  Element:      ProviderName
-  Description:  "Provider Name"
-  Value:        HumanName
-
-  Element:      ProviderTelephone
-  Description:  "Provider Telephone Number"
-  Based on:     Telephone
-  0..1			    Purpose is #work
-
-  Element:      ProviderAddress
-  Description:  "Physical and mailing address of a provider"
-  Based on:     Address
-  1..1          Purpose is #work
-  1..1          Type is #both // Both mailing and physical location
