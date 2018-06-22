@@ -1,0 +1,24 @@
+Grammar:	Map 5.0
+Namespace:	poplin.ps
+Target:		FHIR_STU_3
+
+// TODO: Type requirements for sliced inputs are not preserved in FHIR mapping
+// https://github.com/standardhealth/shr-cli/issues/108
+
+OrganizationApplication maps to Task:
+  fix intent to #proposal
+  PoplinCode maps to code // TODO the code is fixed in the FHIR profile, but not the codesystem 
+  Focus.Value maps to focus
+  EFTAccepted maps to input (slice on = type)
+  ElectronicClaimsAccepted maps to input
+  ProviderType maps to input
+  IntegrityCheck maps to input
+
+ProviderApplication maps to Task:
+  fix intent to #proposal
+  PoplinCode maps to code // TODO the code is fixed in the FHIR profile, but not the codesystem
+  Focus.Value maps to focus
+  EFTAccepted maps to input (slice on = type)
+  ElectronicClaimsAccepted maps to input
+  ProviderType maps to input
+  IntegrityCheck maps to input

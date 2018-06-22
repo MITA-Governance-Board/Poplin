@@ -97,6 +97,12 @@ Value:			string  // or id or code or CodeableConcept?
 0..1			EffectiveTimePeriod
 0..1			Issuer
 
+Element:    Telephone
+// TODO: Concept Code
+Description: "A telephone number for contacting an organization or individual"
+Based on: ContactPoint
+1..1			Type is #phone
+
 Element:   		ContactPoint
 Concept:		MTH#C2986441
 Description:	"An electronic means of contacting an organization or individual."
@@ -439,13 +445,13 @@ Concept: 		MTH#C0947611
 Description:	"An text note containing additional details, explanation, description, comment, or summarization. Details can discuss, support, explain changes to, or dispute information."
 Value:			string  // change to language-text
 
-Element:		OrganizationalIdentifier
-Concept:		TBD
-Based on:		Identifier
-Description:	"A code identifying a specific organization. The NPI should be provided, if available. Other business identifiers, such employer tax ID, or MVX code for vaccine manufacturers, should also be provided."
-Value:			string
-0..1			TimePeriod
-0..1			Organization
+// Element:		OrganizationalIdentifier
+// Concept:		TBD
+// Based on:		Identifier
+// Description:	"A code identifying a specific organization. The NPI should be provided, if available. Other business identifiers, such employer tax ID, or MVX code for vaccine manufacturers, should also be provided."
+// Value:			string
+// 0..1			TimePeriod
+// 0..1			Organization
 
 Element:		Reason
 Concept:		MTH#C0566251
@@ -608,7 +614,7 @@ Based on:		Role
 Concept: 		MTH#C1299487
 Description:	"A person in the role of a patient, including extended demographic information about the subject of this health record."
 				Value is type ref(Person)
-1..1			PlaceOfBirth
+// 1..1			PlaceOfBirth
 0..1			MultipleBirth
 1..1			BirthSex
 1..1		 	Race
@@ -622,7 +628,7 @@ Description:	"A person in the role of a patient, including extended demographic 
 0..1			MedicalInterpreterNeeded
 0..1			Deceased
 // Added to make the mapping work
-// 1..1			AdministrativeGender
+1..1			AdministrativeGender
 1..1			HumanName
 
 	Element:   		PlaceOfBirth
@@ -686,9 +692,12 @@ Description:	"A person in the role of a patient, including extended demographic 
 	Value:			HumanName
 
 	Element: 		SocialSecurityNumber
+	Based on:		Identifier
 	Concept:		MTH#C1301821
 	Description:	"A US social security number (SSN)."
-	Value:			string   // note that missing value reasons include "none" - meaning the subject does not have a SSN
+	1..1			CodeSystem
+	// TODO: https://github.com/standardhealth/shr-cli/issues/30
+	// CodeSystem.Value is http://hl7.org/fhir/sid/us-ssn
 
 	Element:		DriversLicenseNumber
 	Concept:		TBD
@@ -734,7 +743,8 @@ Description:	"A person who practices a healing art."
 				Value is type ref(Person)
 //1..1			HumanName   // only one (limitation imposed by us-core)
 // 0..*			Affiliation // handled by ProviderRelationship in FHIR
-1..1    		NationalProviderIdentifier
+0..1    		NationalProviderIdentifier
+0..1				SocialSecurityNumber
 0..*    		Qualification
 // Added to make the mapping work
 1..1				HumanName
@@ -749,6 +759,16 @@ Description:	"A person who practices a healing art."
 	Concept:		MTH#C1549728
 	Description:	"A unique 10-digit number to allow US healthcare providers to identify themselves in a standard way throughout the healthcare industry."
 	1..1			CodeSystem
+	// TODO: https://github.com/standardhealth/shr-cli/issues/30
+	// CodeSystem.Value is http://hl7.org/fhir/sid/us-npi
+
+	Element: 		EmployerIdentificationNumber
+	Based on:		Identifier
+	Concept:		MTH#C4071521
+	Description:	"A unique 10-digit number to allow US healthcare providers to identify themselves in a standard way throughout the healthcare industry."
+	1..1			CodeSystem
+	// TODO: https://github.com/standardhealth/shr-cli/issues/30
+	// CodeSystem.Value is urn:oid:2.16.840.1.113883.4.4
 
 	Element:		Qualification
 	Concept:		MTH#C0037778
@@ -786,7 +806,6 @@ Description:    "A social or legal structure formed by human beings."
 0..*			OrganizationAlias
 1..*			OrganizationIdentifier
 1..1			Type from http://hl7.org/fhir/ValueSet/organization-type
-1..*			OrganizationIdentifier
 1..*			Address
 1..*			ContactPoint
 1..1			ActiveFlag
@@ -802,6 +821,7 @@ Description:    "A social or legal structure formed by human beings."
 	Description:	"A list of alternate names that the organization is known as, or was known as in the past."
 	Value:			string
 	
+	// TODO: Add 0..1 NPI, EIN, etc. in addition to this
 	Element:		OrganizationIdentifier
 	Based on:		Identifier
 	Concept:		TBD
@@ -812,6 +832,18 @@ Description:    "A social or legal structure formed by human beings."
 	Description:	"The larger entity that this is a portion of."
 	Value:			ref(Content)
 
+	Element:		Focus
+	Concept:		TBD
+	Description:	"The subject of a particular action."
+	Value:			ref(Content)
+
+
+EntryElement: ProviderOrganization
+Description:  "An organization that provides healthcare services"
+Based on:     Organization
+1..1          Type is #prov
+0..1          EmployerIdentificationNumber
+0..1          NationalProviderIdentifier
 	
 Element:	Group
 Based on:		Entity
