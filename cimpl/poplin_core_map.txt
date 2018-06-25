@@ -122,10 +122,6 @@ Practitioner maps to http://hl7.org/fhir/us/core/StructureDefinition/us-core-pra
 	Value.Address maps to address
 	Value.ContactPoint maps to telecom
 	Value.LanguageUsed maps to communication
-	// TODO: I'd like to add SSN and NPI as options for the identifier, but USCore is 1..* and these need to be 0..1
-	// SocialSecurityNumber maps to identifier
-	// NationalProviderIdentifier maps to identifier
-	// fix identifier.system to http://hl7.org/fhir/sid/us-npi
 	Qualification maps to qualification
 	Qualification.Type maps to qualification.code
 	Qualification.EffectiveTimePeriod maps to qualification.period
@@ -157,9 +153,6 @@ ProviderOrganization maps to http://hl7.org/fhir/us/core/StructureDefinition/us-
 	OrganizationName maps to name
 	OrganizationAlias maps to alias  // I wish FHIR allowed multiple names, but it doesn't
 	Type maps to type
-	// TODO: I'd like to add these as identifiers, but USCore mandates that the identifier be 1..* and these need to be 0..1
-	// EmployerIdentificationNumber maps to identifier (slice on = identifier.system)
-	// NationalProviderIdentifier maps to identifier
 	OrganizationIdentifier maps to identifier
 	Address maps to address
 	ContactPoint maps to telecom
