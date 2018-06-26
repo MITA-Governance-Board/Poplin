@@ -3,36 +3,120 @@ Namespace:       poplin.ee
 Description:    "This is a description"
 Uses:            shr.core, shr.base, poplin.core
 
-CodeSystem:      EPRIOR = http://hl7.org/fhir/processpriority
-CodeSystem:      ESTAT = http://hl7.org/fhir/fm-status
+//Example Codes Used
+CodeSystem:     EPRIOR = http://hl7.org/fhir/processpriority //Process Priority
+CodeSystem:     ESTAT = http://hl7.org/fhir/fm-status //Financial Status
+CodeSystem:     REMIT = http://hl7.org/fhir/ValueSet/remittance-outcome //Remittance Determination
+CodeSystem:     ADJERR = http://hl7.org/fhir/ValueSet/adjudication-error //Adjudication Error Code
+CodeSystem:     COVCD = http://hl7.org/fhir/ValueSet/coverage-type //Coverage Code Types
 
 EntryElement:	EligibilityRequest
-Description:    "describe"
+Description:    "Eligibility request transmitted to the reviewing state organization"
 1..1    BusinessID
 1..1    Presence
 1..1    Flag
 1..1    Record
 1..1    Benefit
-1..1    Subbenefit
-1..1    ServiceDate
-1..1    ServicePeriod
+0..1    Subbenefit
+0..1    ServiceDate
+0..1    ServicePeriod
 
     Element:        BusinessID
-    Description:    "describe"
+    Description:    "Identifier for the eligibility transaction"
     Based on:       Identifier
 
     Element:        Presence
-    Description:    "describe"
+    Description:    "Current status of the eligibility review"
     Value:          code from ESTAT
 
     Element:        Flag
-    Description:    "describe"
+    Description:    "Priority signal for the review, eg marked urgent"
     Value:          code from EPRIOR
 
     Element:        Record
-    Description:    "describe"
+    Description:    "Individual identified by record"
     Value:          ref(Patient)
 
     Element:        ServiceDate
-    Description:    "describe"
+    Description:    "Requested service date"
     Value:          date
+
+    Element:        ServicePeriod
+    Description:    "Requested end of service date"
+    Value:          date
+
+EntryElement:   EligibilityResponse
+Description:    "Eligibility request after determination by the reviewing state organization"
+1..1    BusinessID
+1..1    Presence
+1..1    ServiceStartDate
+1..1    EligibleState
+1..1    Determination
+0..1    DeterminationDetail
+0..*    BenefitCoverage
+0..*    Exceptions
+
+    Element:        BusinessID
+    Description:    "Identifier for the eligibility transaction"
+    Based on:       Identifier
+
+    Element:        Presence
+    Description:    "Current status of the eligibility review"
+    Value:          code from ESTAT
+
+    Element:        ServiceStartDate
+    Description:    "Eligibility coverage start date"
+    Value:          date
+
+    Element:        EligibleState
+    Description:    "State or territory of the eligibility"
+    Value:          ref(Organization)
+
+    Element:        Determination
+    Description:    "Result of the eligibility determination"
+    Value:          code from REMIT
+
+    Element:        DeterminationDetail
+    Description:    "Additional information on determination"
+    Value:          string
+
+    Element:        BenefitCoverage
+    Description:    "Information on the benefits determined"
+    Value:          ref(Coverage)
+
+    Element:        Exceptions
+    Description:    "Exception codes if applicable"
+    Value:          code from ADJERR
+
+EntryElement:   Benefit
+Description:    "Benefit granted to the individual or group upon eligibility"
+1..1    BenefitID
+1..1    BenefitStatus
+1..1    Beneficiary
+1..1    BenefitPeriod
+1..1    StateTerritory
+0..1    AdditionalInfo
+
+    Element:        BenefitID
+    Description:    "Identifier for the benefit"
+    Value:          Identifier
+
+    Element:        BenefitStatus
+    Description:    "Current status of the benefit"
+    Value:          code from ESTAT
+
+    Element:        Beneficiary
+    Description:    "Policy holder of the benefit"
+    Value:          ref(Patient)
+
+    Element:        BenefitPeriod
+    Description:    "Benefit availability period"
+    Value:          date
+
+    Element:        StateTerritory
+    Description:    "State or territory providing benefit"
+    Value:          ref(Organization)
+
+    Element:        AdditionalInfo
+    Description:    "Additional information on the benefit"
+    Value:          string

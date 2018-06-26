@@ -9,5 +9,47 @@ EligibilityRequest maps to EligibilityRequest:
     Record maps to patient
     Benefit maps to benefitCategory
     Subbenefit maps to benefitSubCategory
-    ServiceDate maps to serviced[x].servicedDate
-    ServicePeriod maps to serviced[x].servicedPeriod
+    ServiceDate maps to serviced[x].servicedDate //Is timeline info used in post-application review?
+    ServicePeriod maps to serviced[x].servicedPeriod //
+
+EligibilityResponse maps to EligibilityResponse:
+    BusinessID maps to identifier
+    Presence maps to status
+    ServiceStartDate maps to created
+    EligibleState maps to requestOrganization
+    Determination maps to outcome
+    DeterminationDetail maps to disposition
+    BenefitCoverage maps to insurance.coverage //Choice: benefitBalance as encoded message or search resource?
+    Exceptions maps to error.code //FHIR resource field name is "code", fyi on syntax double dip
+
+//Possibly core resource fields
+Benefit maps to Coverage:
+    BenefitID maps to identifier
+    BenefitStatus maps to status
+    BenefitType maps to type
+    Beneficiary maps to policyHolder
+    //Subscriber reference to other individuals available - maybe family members
+    //Use policyHolder as HofHousehold & beneficiary as usual - if so, add relationship
+    BenefitPeriod maps to period
+    StateTerritory maps to payor
+    AdditionalInfo maps to grouping.classDisplay
+    //Contract as additional expansion
+
+// State maps to Organization ** Code system for states+territories ??
+
+/* Reference to Individual as Patient in Poplin core
+Core Mappings Used:
+    identifier - x
+    name - x
+    telecom - ?
+    gender - x
+    birth - multiple-birth??
+    deceased - x
+    date deceased - x
+    address - ADD
+    maritalstatus - x
+    photo - x   Additional wireframe in demo
+    contact - ?
+    managingOrganization - ADD StateTerritory
+    link.other(RelatedPerson) - ?Distinguishing medical vs admin relationship
+*/
