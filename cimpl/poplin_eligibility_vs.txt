@@ -1,11 +1,17 @@
 Grammar:    ValueSet 5.0
 Namespace:  poplin.ee
 
-/*
-Potential Code Systems:
-CodeSystem:     EPRIOR = http://hl7.org/fhir/processpriority - Process Priority
-CodeSystem:     ESTAT = http://hl7.org/fhir/fm-status - Financial Status
-CodeSystem:     REMIT = http://hl7.org/fhir/ValueSet/remittance-outcome - Remittance Determination
-CodeSystem:     ADJERR = http://hl7.org/fhir/ValueSet/adjudication-error - Adjudication Error Code
-CodeSystem:     COVCD = http://hl7.org/fhir/ValueSet/coverage-type - Coverage Code Types
+//XXX Need actual code systems, FHIR code systems used exampling
+// TODO Add code value descriptions
+/* BUG Code systems URLs not recognized when compiled ...
+CodeSystem:     EPRIOR = http://hl7.org/fhir/processpriority //Process Priority
+//
+CodeSystem:     ESTAT = http://hl7.org/fhir/fm-status //Financial Status
+//
+CodeSystem:     REMIT = http://hl7.org/fhir/ValueSet/remittance-outcome //Remittance Determination
+//
+CodeSystem:     ADJERR = http://hl7.org/fhir/ValueSet/adjudication-error //Adjudication Error Code
+//
+CodeSystem:     COVCD = http://hl7.org/fhir/ValueSet/coverage-type //Coverage Code Types
+//
 */

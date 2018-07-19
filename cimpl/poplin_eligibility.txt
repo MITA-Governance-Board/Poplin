@@ -1,38 +1,44 @@
 Grammar:         DataElement 5.0
 Namespace:       poplin.ee
-Description:    "This is a description"
+Description:    "Eligibility request & response information"
 Uses:            shr.core, shr.base, poplin.core
 
-//Example Codes Used
+/*
+//BUG1 CIMPL not recognizing FHIR CodeSystem URLs
+//XXX Need actual code systems, FHIR code systems used exampling
 CodeSystem:     EPRIOR = http://hl7.org/fhir/processpriority //Process Priority
 CodeSystem:     ESTAT = http://hl7.org/fhir/fm-status //Financial Status
 CodeSystem:     REMIT = http://hl7.org/fhir/ValueSet/remittance-outcome //Remittance Determination
 CodeSystem:     ADJERR = http://hl7.org/fhir/ValueSet/adjudication-error //Adjudication Error Code
 CodeSystem:     COVCD = http://hl7.org/fhir/ValueSet/coverage-type //Coverage Code Types
+*/
 
 EntryElement:	EligibilityRequest
 Description:    "Eligibility request transmitted to the reviewing state organization"
 1..1    BusinessID
-1..1    Presence
-1..1    Flag
+//1..1    Presence //BUG1 code for CodeableConcept not compiling
+//1..1    Flag //BUG1 code for CodeableConcept not compiling
 1..1    Record
-1..1    Benefit
-0..1    Subbenefit
-0..1    ServiceDate
-0..1    ServicePeriod
+//TODO Confirm benefit structure on transmission
+//1..1    Benefit
+//0..1    Subbenefit
+//0..1    ServiceDate
+//0..1    ServicePeriod
 
     Element:        BusinessID
     Description:    "Identifier for the eligibility transaction"
     Based on:       Identifier
 
+/* BUG1 code for CodeableConcept not compiling
     Element:        Presence
     Description:    "Current status of the eligibility review"
     Value:          code from ESTAT
-
+*/
+/* BUG1 code for CodeableConcept not compiling
     Element:        Flag
     Description:    "Priority signal for the review, eg marked urgent"
     Value:          code from EPRIOR
-
+*/
     Element:        Record
     Description:    "Individual identified by record"
     Value:          ref(Patient)
@@ -43,57 +49,61 @@ Description:    "Eligibility request transmitted to the reviewing state organiza
 
     Element:        ServicePeriod
     Description:    "Requested end of service date"
-    Value:          date
+    Value:          dateTime
 
 EntryElement:   EligibilityResponse
-Description:    "Eligibility request after determination by the reviewing state organization"
+Description:    "Response to the eligibility request after determination by the reviewing state organization"
 1..1    BusinessID
-1..1    Presence
+//1..1    Presence //BUG1 code for CodeableConcept not compiling
 1..1    ServiceStartDate
 1..1    EligibleState
-1..1    Determination
+//1..1    Determination //BUG1 code for CodeableConcept not compiling
 0..1    DeterminationDetail
 0..*    BenefitCoverage
-0..*    Exceptions
+//0..*    Exceptions //BUG1 code for CodeableConcept not compiling
 
     Element:        BusinessID
     Description:    "Identifier for the eligibility transaction"
     Based on:       Identifier
 
+/* BUG1 code for CodeableConcept not compiling
     Element:        Presence
     Description:    "Current status of the eligibility review"
     Value:          code from ESTAT
-
+*/
     Element:        ServiceStartDate
     Description:    "Eligibility coverage start date"
-    Value:          date
+    Value:          dateTime
 
     Element:        EligibleState
-    Description:    "State or territory of the eligibility"
+    Description:    "State or territory the elibility request is sent to"
     Value:          ref(Organization)
 
+/* BUG1 code for CodeableConcept not compiling
     Element:        Determination
     Description:    "Result of the eligibility determination"
     Value:          code from REMIT
-
+*/
     Element:        DeterminationDetail
-    Description:    "Additional information on determination"
+    Description:    "Additional information on the result"
     Value:          string
 
     Element:        BenefitCoverage
-    Description:    "Information on the benefits determined"
-    Value:          ref(Coverage)
+    Description:    "Information on each benefit currently active"
+    Value:          ref(Benefit)
 
+/* BUG1 code for CodeableConcept not compiling
     Element:        Exceptions
     Description:    "Exception codes if applicable"
     Value:          code from ADJERR
+*/
 
 EntryElement:   Benefit
 Description:    "Benefit granted to the individual or group upon eligibility"
 1..1    BenefitID
-1..1    BenefitStatus
+//1..1    BenefitStatus //BUG1 code for CodeableConcept not compiling
 1..1    Beneficiary
-1..1    BenefitPeriod
+//1..1    BenefitPeriod //BUG2 code for CodeableConcept not compiling
 1..1    StateTerritory
 0..1    AdditionalInfo
 
@@ -101,18 +111,20 @@ Description:    "Benefit granted to the individual or group upon eligibility"
     Description:    "Identifier for the benefit"
     Value:          Identifier
 
+/* BUG1 code for CodeableConcept not compiling
     Element:        BenefitStatus
     Description:    "Current status of the benefit"
     Value:          code from ESTAT
-
+*/
     Element:        Beneficiary
     Description:    "Policy holder of the benefit"
     Value:          ref(Patient)
 
+/* BUG2 TODO complex type Period not supported
     Element:        BenefitPeriod
     Description:    "Benefit availability period"
-    Value:          date
-
+    Value:          Period
+*/
     Element:        StateTerritory
     Description:    "State or territory providing benefit"
     Value:          ref(Organization)
