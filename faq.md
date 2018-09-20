@@ -26,9 +26,9 @@ Any organization affiliated with Medicaid IT systems stands to benefit from the 
 ## What are the Poplin APIs?
 The Poplin APIs establish service definitions, data transfer methods, and file standards.  This allows vendors to focus on building those services and allows states to build an MMIS system from multiple interoperable modules.  Service definitions leverage a number of standards, including [UML](http://www.omg.org/spec/UML/), [SysML](http://www.omg.org/spec/SysML/), [UAF](http://www.omg.org/spec/UAF/), [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification), and [MITA 3.0](https://www.medicaid.gov/medicaid/data-and-systems/mita/mita-30/index.html)
 
-## Where did the Poplin project come from?
-Currently, the Poplin project is being stewarded by a Reference Architecture Working Group of the [MITA Governance Board](https://www.medicaid.gov/medicaid/data-and-systems/mita/governance/index.html).  This working group currently consists of members from the [Center for Medicaid and CHIP Services (CMCS)](https://www.medicaid.gov/), [MITRE's](https://www.mitre.org) [CMS Alliance to Modernize Healthcare](https://www.mitre.org/centers/cms-alliances-to-modernize-healthcare/who-we-are), the [Vermont Agency of Human Services](http://humanservices.vermont.gov/), and [CNSI](http://www.cns-inc.com/), among others.
-<!-- Does order matter here?  Is anyone offended by being called out here? -->
+## How does the Poplin project operate?
+The Poplin Working Group of the [MITA Governance Board](https://www.medicaid.gov/medicaid/data-and-systems/mita/governance/index.html)stewards the Poplin project. This working group represents a cross-industry body with a growing number of members from the private, public, and non-profit sectors. The Poplin project has created alliances with the 
+[Medicaid Technology Alliance](http://www.medicaidtechalliance.com/), the [New Jersey Innovation Institute](http://njii.com/), [MITA-TAC](https://mitatacpoc.org/), the [Private Sector Technology Group](https://www.pstg.org/), the [Da Vinci Project](http://www.hl7.org/about/davinci/index.cfm), the [CARIN Alliance](https://carinalliance.com/), and [Blue Button 2.0](https://bluebutton.cms.gov/).
 
 ## How can I contribute to the Poplin project?
 There are several ways you can contribute to the Poplin project:
