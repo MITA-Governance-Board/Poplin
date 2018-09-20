@@ -24,7 +24,7 @@ Any organization affiliated with Medicaid IT systems stands to benefit from the 
 - [Medicaid IT Vendors](/vendors)
 
 ## What are the Poplin APIs?
-The Poplin APIs establish service definitions, data transfer methods, and file standards.  This allows vendors to focus on building those services and allows states to build an MMIS system from multiple interoperable modules.  Service definitions leverage a number of standards, including [UML](http://www.omg.org/spec/UML/), [SysML](http://www.omg.org/spec/SysML/), [UAF](http://www.omg.org/spec/UAF/), [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification), and [MITA 3.0](https://www.medicaid.gov/medicaid/data-and-systems/mita/mita-30/index.html)
+The Poplin APIs establish service definitions, data transfer methods, and file standards.  This allows vendors to focus on building those services and allows states to build an MMIS system from multiple interoperable modules.  Service definitions leverage a number of standards, including [UML](http://www.omg.org/spec/UML/), [SysML](http://www.omg.org/spec/SysML/), [UAF](http://www.omg.org/spec/UAF/), [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification), [FHIR](https://www.fhir.org/), and [MITA 3.0](https://www.medicaid.gov/medicaid/data-and-systems/mita/mita-30/index.html)
 
 ## How does the Poplin project operate?
 The Poplin Working Group of the [MITA Governance Board](https://www.medicaid.gov/medicaid/data-and-systems/mita/governance/index.html)stewards the Poplin project. This working group represents a cross-industry body with a growing number of members from the private, public, and non-profit sectors. The Poplin project has created alliances with the 
